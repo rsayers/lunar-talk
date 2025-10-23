@@ -1,9 +1,13 @@
 Lunar-talk
 =============
+![A crudely drawn illustration of an old phone receiver and a crescent moon, below these is the text: Lunar-Talk](https://raw.githubusercontent.com/rsayers/lunar-talk/refs/heads/main/logo.png "The Lunar-Talk Logo")
+
+Lunar-talk is an experimental dialect of Smalltalk implemented in Lua.
+
+
 ![Static Badge](https://img.shields.io/badge/NO_AI-100%25_Human_Coded-brightgreen)
 
 
-Lunar-talk is an experimental dialect of Smalltalk implemented in Lua.
 
 Overview
 ---------
