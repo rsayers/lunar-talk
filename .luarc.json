@@ -1,8 +1,26 @@
 {
+  "diagnostics": {
+    "disable": [
+      "unused-function",
+      "trailing-space",
+      "unused-local"
+    ]
+  },
   "workspace": {
     "library": [
+      ".lux/5.4/04ffe6fcd64a42024f9ee913cdf6ef461a0ab37f561890a35bb8d1b255df9c82-luaunit@3.4-1/src",
       ".lux/5.4/0d66041c9f2d25c48bdd46d9b6995445e94e1ab19aecb8f66251f2db20e38c49-debugger@scm-1/src",
-      ".lux/5.4/8925c25e69bb2ef4a2007b536827894dfcca7c1ff54572256002997105acb847-inspect@3.1.3-0/src"
+      ".lux/5.4/53ea714ba9651ef9185052dbfa7a2492a36ccc81ed15332fb8bf1ab4c05c3ec5-lpeg@1.1.0-2/src",
+      ".lux/5.4/65bc3ea995808438ff645959c3d0d66012ecdbcf8d73a4b7b39a043812c03ae6-luasocket@3.1.0-1/src",
+      ".lux/5.4/693c84a3e25c2ddf9a263a1d8571d2ed7663e99c691ba27c66c85a7e1db63a2f-luafilesystem@1.8.0-1/src",
+      ".lux/5.4/7784d4b4b71e12fe78dcdd7c597a88ad838cc1a4049de5d0d6ae964888c91eaf-pegasus@1.0.9-0/src",
+      ".lux/5.4/7f0f0fa7bb7ef81564fd00ac6b5d1e33f4ae77ef9ce1101d8f22d3468444a6a6-luasocket@3.1.0-1/src",
+      ".lux/5.4/8925c25e69bb2ef4a2007b536827894dfcca7c1ff54572256002997105acb847-inspect@3.1.3-0/src",
+      ".lux/5.4/b129bd7724d42f7352dcc83540a27d8bac4d5223474021f09f8f710a9104f814-ezserv@1.3-1/src",
+      ".lux/5.4/b8dc5b284c97466dc14fcf62f52ff97207b04e5cc58cbf6406bcbe0fbe3388a3-lzlib@0.4.1.53-4/src",
+      ".lux/5.4/cc78c9b80496da3800da1053a1a2e82162893ca277ec7bd7c53d763443c523e1-quinku@1.0-1/src",
+      ".lux/5.4/d26705d43e208b5850df22fd7a02dc9917f86a15de0d6450893ed887c9f062ba-mimetypes@1.1.0-2/src",
+      ".lux/5.4/d528cd52981564259b873ae3f972f48a19522d775240465725a6434109336b92-argparse@0.7.1-1/src"
     ]
   }
 }

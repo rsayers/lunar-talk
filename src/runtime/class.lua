@@ -1,0 +1,19 @@
+local LTObject = require("runtime.object")
+local LTNil = require("runtime.nil")
+
+local LTClass = LTObject:new()
+
+function LTClass:instantiate() end
+
+LTClass.instVars = {}
+LTClass.class = LTClass
+LTClass.superClass = LTNil
+
+function LTClass:new()
+   local obj = LTObject:new()
+    setmetatable(obj, self)
+    obj.initialize()
+   return obj
+end
+
+return LTClass

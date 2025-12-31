@@ -1,0 +1,4 @@
+local LTObject = require("runtime.object")
+local LTNumber = LTObject:new()
+
+return LTNumber

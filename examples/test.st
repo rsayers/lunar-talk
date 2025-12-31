@@ -1,0 +1,2 @@
+| x |
+(1 to: 10) do: [ :x | Transcript show: x].

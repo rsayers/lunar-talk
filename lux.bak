@@ -1,0 +1,106 @@
+{
+  "version": "1.0.0",
+  "dependencies": {
+    "rocks": {
+      "04ffe6fcd64a42024f9ee913cdf6ef461a0ab37f561890a35bb8d1b255df9c82": {
+        "name": "luaunit",
+        "version": "3.4-1",
+        "pinned": false,
+        "opt": false,
+        "dependencies": [],
+        "constraint": "==3.4",
+        "binaries": [],
+        "source": "luarocks_rockspec+https://luarocks.org/",
+        "source_url": {
+          "type": "url",
+          "url": "https://github.com/bluebird75/luaunit/releases/download/LUAUNIT_V3_4/rock-luaunit-3.4.zip"
+        },
+        "hashes": {
+          "rockspec": "sha256-lhRpuwnGDFYKtKEl/wKYmANpZ8XmvM12CkhcpFwZJIQ=",
+          "source": "sha256-eVsgJDBTlbIgDvpOTZKt/RVbt3GKUFagICJb8XmcFu0="
+        }
+      },
+      "0d66041c9f2d25c48bdd46d9b6995445e94e1ab19aecb8f66251f2db20e38c49": {
+        "name": "debugger",
+        "version": "scm-1",
+        "pinned": false,
+        "opt": false,
+        "dependencies": [],
+        "constraint": "==scm",
+        "binaries": [],
+        "source": "luarocks_rockspec+https://luarocks.org/",
+        "source_url": {
+          "type": "git",
+          "url": "https://github.com/slembcke/debugger.lua.git",
+          "ref": "fbce3de3fcd9cfcd508d6d672b587aedc3a4b07f"
+        },
+        "hashes": {
+          "rockspec": "sha256-PoOQN5+rYs3uWQDXDpWAdQjp/YsvG8AJlR4hdVORkn0=",
+          "source": "sha256-xn+oasRjHoAEwpcTAC/N3+uvVVx3eP+7l3udeQ4pwY0="
+        }
+      },
+      "53ea714ba9651ef9185052dbfa7a2492a36ccc81ed15332fb8bf1ab4c05c3ec5": {
+        "name": "lpeg",
+        "version": "1.1.0-2",
+        "pinned": false,
+        "opt": false,
+        "dependencies": [],
+        "constraint": "==1.1.0",
+        "binaries": [],
+        "source": "luarocks_rockspec+https://luarocks.org/",
+        "source_url": {
+          "type": "url",
+          "url": "https://www.inf.puc-rio.br/~roberto/lpeg/lpeg-1.1.0.tar.gz"
+        },
+        "hashes": {
+          "rockspec": "sha256-RCmG2ljJgEOWkp3Rsmty33/7a4qqLfpc0IhOHLq2Cz0=",
+          "source": "sha256-SxVdZ9IkbB/6ete8RmweqJm7xA/vAlfMnAPOy67UNSo="
+        }
+      },
+      "8925c25e69bb2ef4a2007b536827894dfcca7c1ff54572256002997105acb847": {
+        "name": "inspect",
+        "version": "3.1.3-0",
+        "pinned": false,
+        "opt": false,
+        "dependencies": [],
+        "constraint": "==3.1.3",
+        "binaries": [],
+        "source": "luarocks_rockspec+https://luarocks.org/",
+        "source_url": {
+          "type": "url",
+          "url": "https://github.com/kikito/inspect.lua/archive/v3.1.3.tar.gz"
+        },
+        "hashes": {
+          "rockspec": "sha256-2sbysjYqvjgdqqkkSPw1GHUpN8deV8FUZeqCX6VYO8Y=",
+          "source": "sha256-QzhqYT+ZFhhq9JGfNjkti42tjEQopfjIXrrICsunHus="
+        }
+      },
+      "e575412cb5f3fcef68e9aff01934f6491336f5c3567614e06aa1b16898e19cdf": {
+        "name": "luamark",
+        "version": "0.9.1-1",
+        "pinned": false,
+        "opt": false,
+        "dependencies": [],
+        "constraint": "==0.9.1",
+        "binaries": [],
+        "source": "luarocks_rockspec+https://luarocks.org/",
+        "source_url": {
+          "type": "git",
+          "url": "https://github.com/jeffzi/luamark.git",
+          "ref": "v0.9.1"
+        },
+        "hashes": {
+          "rockspec": "sha256-nj7dQJAJY5SiaXAtCKrmEZDB1wgmKG8qwP46jQFoR4M=",
+          "source": "sha256-05V/GOOYyP8MTp3qW7tQXwS/wHlyETRotddSVJdLecE="
+        }
+      }
+    },
+    "entrypoints": [
+      "04ffe6fcd64a42024f9ee913cdf6ef461a0ab37f561890a35bb8d1b255df9c82",
+      "0d66041c9f2d25c48bdd46d9b6995445e94e1ab19aecb8f66251f2db20e38c49",
+      "53ea714ba9651ef9185052dbfa7a2492a36ccc81ed15332fb8bf1ab4c05c3ec5",
+      "8925c25e69bb2ef4a2007b536827894dfcca7c1ff54572256002997105acb847",
+      "e575412cb5f3fcef68e9aff01934f6491336f5c3567614e06aa1b16898e19cdf"
+    ]
+  }
+}

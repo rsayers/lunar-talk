@@ -1,0 +1,22 @@
+local LTObject = require("runtime/object")
+
+local LTTrue = LTObject:new()
+local LTFalse = LTObject:new()
+
+LTTrue["ifTrue:"] = function(self, callback)
+   return callback()
+end
+
+LTTrue["ifFalse:"] = function(self, callback)
+   return nil
+end
+
+LTFalse["ifTrue:"] = function(self, callback)
+   return nil
+end
+
+LTFalse["ifFalse:"] = function(self, callback)
+   return callback()
+end
+
+return LTTrue, LTFalse

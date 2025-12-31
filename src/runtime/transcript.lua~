@@ -1,0 +1,8 @@
+local LTObject = require("runtime.object")
+local Transcript = LTObject:new()
+
+Transcript["show:"] = function(self, val)
+   print(tostring(val))
+end
+
+return Transcript

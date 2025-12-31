@@ -1,0 +1,35 @@
+local luaunit = require('luaunit')
+local Lexer = require('lexer').Lexer
+local Parser = require('parser').Parser
+local Util = require('util')
+
+local function parse(src)
+    Lexer:scan(src)
+    Parser:initialize()
+    Parser.tokens = Lexer.tokens
+    Parser.pos = 1
+end
+
+TestParser = {}
+
+function TestParser:xtestAssignment()
+    local src = "x := 1"
+    parse(src)
+
+    luaunit.assertIsTrue(Parser:isAssignment())
+
+    local node = Parser:assignment()
+    luaunit.assertEquals("Assignment", node.type)
+
+    luaunit.assertEquals(Parser.pos, #Parser.tokens)
+end
+
+TestUtil = {}
+function TestUtil:testssplit()
+    local s = "how now brown cow"
+    local parts = Util.ssplit(s, ' ')
+    luaunit.assertEquals(parts, {'how', 'now', 'brown', 'cow'})
+    
+end
+
+os.exit( luaunit.LuaUnit.run() )

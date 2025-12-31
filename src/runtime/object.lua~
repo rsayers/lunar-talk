@@ -1,0 +1,109 @@
+local LTObject = { luaValue = nil, objectId = 1 }
+LTObject.__index = LTObject
+
+function LTObject:new()
+   local inst = setmetatable({}, self)
+   inst.objectId = inst.objectId + 1
+   return inst
+end
+
+LTObject["="] = function(self, anObject)
+   return self.luaVal == anObject.luaVal
+end
+
+LTObject["=="] = function(self, anObject)
+   return self["="](self, anObject)
+end
+
+LTObject["~="] = function(self)
+   return self.objectId == self.objectId
+end
+
+LTObject["~~"] = function(self)
+   return self.objectId ~= self.objectId
+end
+
+LTObject["class"] = function(self)
+   return getmetatable(self)
+end
+
+local function rawCopy(obj)
+   if type(obj) ~= "table" then
+      return obj
+   end
+   local res = setmetatable({}, getmetatable(obj))
+   for k, v in pairs(obj) do
+      res[rawCopy(k)] = rawCopy(v)
+   end
+   return res
+end
+
+LTObject["copy"] = function(self)
+   return rawCopy(self)
+end
+
+LTObject["wrapVal"] = function(self, val)
+   local inst = self:new()
+   inst.luaValue = val
+   return inst
+end
+
+LTObject["doesNotUnderstand:"] = function(self) end
+
+LTObject["error:"] = function(self) end
+
+LTObject["hash"] = function(self)
+   return self.luaValue
+end
+
+LTObject["identityHash"] = function(self)
+   return self.objectId
+end
+
+LTObject["isKindOf:"] = function(self, candidateClass)
+   return getmetatable(self) == getmetatable(candidateClass)
+end
+
+LTObject["isMemberOf:"] = function(self, candidateClass)
+   return getmetatable(self) == getmetatable(candidateClass)
+end
+
+LTObject["isNil"] = function(self)
+   return false
+end
+
+LTObject["notNil"] = function(self)
+   return true
+end
+
+LTObject["perform:"] = function(self, selector)
+   return self["selector"](self)
+end
+
+LTObject["perform:with:"] = function(self, selector, arg1)
+   return self["perform:withArguments:"](self, selector, { arg1 })
+end
+
+LTObject["perform:with:with:"] = function(self, selector, arg1, arg2)
+   return self["perform:withArguments:"](self, selector, { arg1, arg2 })
+end
+
+LTObject["perform:with:with:with:"] = function(self, selector, arg1, arg2, arg3)
+   return self["perform:withArguments:"](self, selector, { arg1, arg2, arg3 })
+end
+
+LTObject["perform:withArguments:"] = function(self, selector, args)
+   return self[selector](self, table.unpack(args))
+end
+
+LTObject["printOn:"] = function(self) end
+
+LTObject["printString"] = function(self) end
+
+LTObject["respondsTo:"] = function(self, selector)
+   return type(self[selector]) == "function"
+end
+
+LTObject["yourself"] = function(self) end
+
+return LTObject
