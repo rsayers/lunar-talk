@@ -213,9 +213,12 @@ function Parser:keywordSignature()
 end
 
 function Parser:parseKwMessageSend(callee)
+    print("PARSEKWMSGSEND")
+    print(inspect(callee))
    local kwParts = {}
    local argParts = {}
-   local token = self:current()
+    local token = self:current()
+    print(inspect(token))
    if not callee then
       callee = token
       token = self:next()
@@ -241,12 +244,14 @@ function Parser:parseKwMessageSend(callee)
       methodName = methodName .. kwParts[i]
    end
 
-   return Node({
+   local foo = Node({
       type = NodeType.KeywordMessageSend,
       name = methodName,
       args = argParts,
       callee = callee,
-   })
+    })
+    print("!!!!")
+    print(inspect(foo))
 end
 
 function Parser:parseKwMessageSignature()
@@ -327,12 +332,17 @@ function Parser:statement()
    })
 end
 
-function Parser:expression()
+function Parser:expresison()
    if self:atEnd() then
       return
    end
-   if self:current().type == TokType.EndStatement then
-      return
+    if self:current().type == TokType.EndStatement then
+        return
+    end
+
+    
+   if self:isMessageSend() then
+      return self:messageSend()
    end
 
    if self:isAssignment() then
@@ -340,16 +350,17 @@ function Parser:expression()
    end
 
    if self:isPrimary() then
-      return self:primary()
+        local exp = self:primary()
+        if self:isMessageSend() then
+            return self:messageSend(exp)
+        end
+	return exp
    end
 
    if self:isReturn() then
       return self:fnreturn()
    end
 
-   if self:isMessageSend() then
-      return self:messageSend()
-   end
    self:error("Unexpected Token", self:current())
 end
 
@@ -399,7 +410,7 @@ function Parser:messageSend(callee)
 end
 
 function Parser:isBinarySend()
-   if self:current().type == TokType.Name and self:peek().type == TokType.Binary then
+   if self:peek().type == TokType.Binary then
       return true
    end
 end
@@ -434,7 +445,6 @@ end
 
 function Parser:primary()
     local current = self:current()
-    print("Parsing " .. current.tokenName)
    if current.type == TokType.ParenOpen then
       return self:parenthesis()
    end
@@ -451,7 +461,7 @@ function Parser:primary()
       return self:messageSend()
    end
 
-   if current.type == TokType.Name and self:peek().type == TokType.NameColon then
+   if (current.type == TokType.Name or current.type == TokType.Number) and self:peek().type == TokType.NameColon then
       return self:messageSend()
    end
 
@@ -520,14 +530,16 @@ function Parser:kwMessageSend(callee)
 end
 
 function Parser:parenthesis()
-   self:next()
+    self:next()
+    print("PARENS")
+    print(inspect(self:peek()))
    local node = Node({
       type = NodeType.ParenExpression,
       expr = self:expression(),
-   })
+    })
 
    self:next()
-   self:next()
+     self:next()
    return node
 end
 

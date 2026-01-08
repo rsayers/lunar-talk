@@ -129,15 +129,16 @@ end
 function CodeGen:Block(node)
    local src = StringBuilder.new()
    src:add("function(")
-   if node.args then
-      local comma = ""
-      for i = 1, #node.args do
-         local name = node.args[i]
-         src:add(name:sub(2, #name))
-         src:add(comma)
-         comma = ","
-      end
-   end
+    if node.args then
+        local comma = ""
+        for i = 1, #node.args do
+            local name = node.args[i]
+            src:add(name:sub(2, #name))
+            src:add(comma)
+            comma = ","
+        end
+    end
+    src:add(") end")
    return tostring(src)
 end
 
@@ -198,9 +199,9 @@ end
 ---@return string
 function CodeGen:ParenExpression(node)
    local src = StringBuilder.new()
-   self:add("(")
-   self:add(self:emit(node.expr))
-   self:add(")")
+   src:add("(")
+   src:add(self:emit(node.expr))
+   src:add(")")
 
    return tostring(src)
 end
@@ -238,11 +239,11 @@ end
 ---@return string
 function CodeGen:KeywordMessageSend(node)
    local src = StringBuilder.new()
-   src:add(node.callee.value)
+   src:add(self:emit(node.callee.value))
    src:add("['")
    src:add(node.name)
    src:add("'](")
-   src:add(node.callee.value)
+   src:add(self:emit(node.callee.value))
    for i = 1, #node.args do
       src:add("," .. self:emit(node.args[i]))
    end
